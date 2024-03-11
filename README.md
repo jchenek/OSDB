@@ -30,6 +30,7 @@ Usage
 -----
 
 - `Step 1`: download general database
+
 Will use aria2 to download all links (~24 h)
 
 ```sh
