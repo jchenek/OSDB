@@ -67,32 +67,57 @@ sh /PATH/TO/kegg_db_wget_p4.sh
 Links to databse:
 -----
 cazy
+
 http://www.cazy.org/
+
 https://bcb.unl.edu/dbCAN2/download/
 
+
 cog
+
 https://ftp.ncbi.nih.gov/pub/COG/
 
+
 tcdb
+
 https://tcdb.org/download.php
 
+
 merops
+
 https://www.ebi.ac.uk/merops/download_list.shtml
+
 Peptidase Full-length Sequences is chosen.
 
+
+
 swissprot
+
 https://www.ncbi.nlm.nih.gov/home/download/
+
+
 
 pfam-A
+
 https://ftp.ebi.ac.uk/pub/databases/Pfam/current_release/
 
+
+
 UniProtKB-TrEMBL
+
 https://www.uniprot.org/help/downloads
 
+
+
 nr
+
 https://www.ncbi.nlm.nih.gov/home/download/
 
+
+
 kegg
+
 https://www.kegg.jp/kegg/rest/keggapi.html
+
 
 - `prepared local database release 20240311`: URL...
