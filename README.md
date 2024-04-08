@@ -68,9 +68,10 @@ sh /PATH/TO/DB_kegg/kegg_db_wget_p3_opt_for_all_genes.sh /PATH/TO/YOUR/OSDB_dir
 perl /PATH/TO/DB_kegg/kegg_db_wget_p3_1_opt_for_all_genes_download_seq.pl all_genes.list
 ```
 
-- `Step 3`: make database
+- `Step 4`: make database
 
 Check scripts in dir 'DB_make'
+
 
 
 Links to databse:
