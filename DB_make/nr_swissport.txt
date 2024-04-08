@@ -1,0 +1,12 @@
+The largest db nr. taxonomy info included.
+
+to make db
+
+1. reformate the fa file:
+sh: perl nr_s1_fa_reformate.pl raw_fa > nr_swiss.fa
+
+2. get one-to-one relation between gene and description
+sh: perl nr_s2_gene_2_description.pl raw_fa > nr_swiss_annotation.txt
+
+3. make diamond db
+sh: diamond makedb --in nr.fa -d nr_swiss.dmnd

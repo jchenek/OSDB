@@ -1,0 +1,28 @@
+The MEROPS database is an information resource for peptidases (also termed proteases, proteinases and proteolytic enzymes) and the proteins that inhibit them. MEROPS groups genes into different functional categories. The gene copy number and/or expression profiles of different functional categories show us the metabolism signature of organisms.
+
+There are errors in ori-fa. and many 1 and | was detected. remove them.
+#1 all deleted
+`````
+Making a V in phase 1 intrXn>AC010140pepPKEHLTNFKSAYFHALTSYL^M$
+CVPTPFPLFWRTVTDAELWITVTVEGKSVPFLIITEATHSTLPSFQGPVSLASLTVVGID^M$
+SQASKPLKTPPXWCQPRQHSFKHSFXVIPTCPVPLLGXDTLTKLSASLTIPGLXLHLIAA^M$
+LLPNPKPPLHPPLVPQYHPLPQNLPSA^M$
+#2 trim the first aa
+`````
+>MER0047490$
+AC110078pepPKKHLTNFKSVHFLVETKETRFICGPKTPVPVTDWEGSLPLVTLTVEGKSVPFLINTEATHSTSLSFQGPVSLASITVVGIDGQASKPLKTPHFWCQLRQHSFMHSFLVISTCPVPLLGXDILTKLSASLTIPELXPHLIDALLPNPNPPLRPPLSPQYHPLPQDLPSA$
+#3 trim the first aa
+`````
+>MER1157965
+
+
+to make db
+
+1. reformate the fa file:
+sh: perl merops_s1_fa_reformate.pl raw_fa > merops.fa
+
+2. get one-to-one relation between gene and family
+sh: perl merops_s2_gene_2_family.pl raw_fa > merops_2_category.txt
+
+3. make diamond db
+sh: diamond makedb --in merops.fa -d merops.dmnd

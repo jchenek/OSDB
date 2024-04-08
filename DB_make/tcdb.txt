@@ -1,0 +1,14 @@
+tcdb is a db for transporters
+it provides the substance of each transporter
+#the seq UPI0002B5B01D	1.E.49.1.3 causes an error ignore the seq
+
+to make db
+
+1. reformate the fa file:
+sh: perl tcdb_s1_fa_reformate.pl raw_fa > tcdb.fa
+
+2. get one-to-one relation between gene and family
+sh: perl tcdb_s2_gene_2_description_substance.pl getSubstrates.py raw_fa > gene_2_description_substance.txt
+
+3. make diamond db
+sh: diamond makedb --in tcdb.fa -d tcdb.dmnd
