@@ -1,2 +1,0 @@
-https://ftp.ncbi.nlm.nih.gov/blast/db/FASTA/swissprot.gz
-https://ftp.ncbi.nlm.nih.gov/blast/db/FASTA/swissprot.gz.md5
