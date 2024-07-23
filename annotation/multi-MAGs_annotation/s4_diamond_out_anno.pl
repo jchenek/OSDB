@@ -1,8 +1,9 @@
 #!/usr/bin/perl -w
-#usage: perl .pl <IN path_to_diamond_db> <IN path_to_diamond_out> <path_to_dir_m6out_dir_anno>
+#run this script in dir diamond_out
+#usage: perl .pl <IN path_to_diamond_db> <path_to_dir_m6out_dir_anno>
 
 use warnings;
-($path, $path_to_diamond_out, $dev) = @ARGV ;
+($path, $dev) = @ARGV ;
 open OU2, ">./anno_com";
 print OU2 "echo \"annotating ...\"\n";
 
