@@ -1,0 +1,3 @@
+https://tcdb.org/public/tcdb
+https://tcdb.org/cgi-bin/substrates/getSubstrates.py
+https://tcdb.org/cgi-bin/substrates/listSuperfamilies.py

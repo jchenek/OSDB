@@ -1,0 +1,2 @@
+https://ftp.ebi.ac.uk/pub/databases/Pfam/current_release/Pfam-A.fasta.gz
+https://ftp.ebi.ac.uk/pub/databases/Pfam/current_release/Pfam-A.clans.tsv.gz

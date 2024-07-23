@@ -1,0 +1,2 @@
+http://www.cazy.org/IMG/cazy_data/cazy_data.zip
+https://bcb.unl.edu/dbCAN2/download/CAZyDB.07262023.fa
