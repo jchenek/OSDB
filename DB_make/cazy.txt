@@ -1,0 +1,23 @@
+cazy groups cazymes into different functional categories. The gene copy number and/or expression profiles of different functional categories show us the metabolism signature of organisms.
+
+to make db
+
+1. reformate the fa file:
+sh: perl cazy_s1_fa_reformate.pl raw_fa > cazy.fa
+old:
+>ACL53976.1|GH38
+MDSTYSLPDNVAMLTLQELEDGSVLLRFAHLYEAGEDKDLSSLASIDLKRVFPEKKIGKVIETSLSANQERAAMEKKRLKWKAQGSAADEKVVRGGPVDPSKLVVELGPMEIRTFIVSFDHISDKQQL
+new:
+>ACL53976.1
+MDSTYSLPDNVAMLTLQELEDGSVLLRFAHLYEAGEDKDLSSLASIDLKRVFPEKKIGKVIETSLSANQERAAMEKKRLKWKAQGSAADEKVVRGGPVDPSKLVVELGPMEIRTFIVSFDHISDKQQL
+
+2. get one-to-one relation between gene and category
+this file is only used for annotation
+sh: perl cazy_s2_gene_2_category.pl raw_fa > cazy_2_category.txt
+
+3. get anno file cazy_data.txt
+this file is used in category summary
+sh: unzip cazy_data.zip
+
+4. make diamond db
+sh: diamond makedb --in cazy.fa -d cazy.dmnd

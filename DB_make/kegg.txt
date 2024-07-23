@@ -1,0 +1,12 @@
+kegg db make
+
+to make db
+
+1. reformate the fa file:
+sh: perl kegg_s1_fa_reformate.pl raw_fa > kegg.fa
+
+2. get one-to-one relation between gene and ko
+sh: perl kegg_s2_gene_2_ko_description.pl raw_fa > kegg_annotation.txt
+
+3. make diamond db
+sh: diamond makedb --in kegg.fa -d kegg.dmnd
