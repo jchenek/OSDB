@@ -1,11 +1,11 @@
 OSDB (one-step database)
 =======
 
-OSDB is a pipeline for local database configuration.
+OSDB is a pipeline for local database configuration and annotation.
 
 - `Note 1`: Please check links in dir `DB_links` before run this pipeline. Make sure all links are valid.
 - `Note 2`: It is common to meet `403 forbidden` issues when you are running kegg-related scripts. Just terminate the current running scripts and re-run it again, and again, and again ... The scripts will not delete downloaded data. And finally you will successfully download them all :)
-- `last update`: 2024/04/10
+- `last update`: 2024/07/23
 
 Installation
 ---------------
@@ -16,9 +16,9 @@ conda create -n OSDB -y
 conda activate OSDB
 
 #mamba is recommend
-mamba install wget aria2 diamond -y
+mamba install wget aria2 diamond=2.0.15 prodigal -y
 #or
-conda install wget aria2 diamond -y
+conda install wget aria2 diamond=2.0.15 prodigal -y
 ```
 
 ### Step 2. Download or clone OSDB repository
@@ -72,6 +72,9 @@ perl /PATH/TO/DB_kegg/kegg_db_wget_p3_1_opt_for_all_genes_download_seq.pl all_ge
 
 Check scripts in dir 'DB_make'
 
+- `Step 5`: local annotation
+
+Check scripts in dir 'annotation'
 
 
 Links to databse:
@@ -102,5 +105,3 @@ https://www.ncbi.nlm.nih.gov/home/download/
 
 kegg: 
 https://www.kegg.jp/kegg/rest/keggapi.html
-
-- `prepared local database release 20240311`: URL...
