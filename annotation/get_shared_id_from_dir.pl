@@ -10,7 +10,7 @@ my@filelist = readdir DIR;
 my%hash = ();
 
 foreach my$file (@filelist) {
-if($file =~ m/.xls||.txt||.csv/){
+if($file =~ m/tsv/){
 	open II, "$DIR_PATH/$file" || die "can not open";
 	while (<II>) {
 		chomp;

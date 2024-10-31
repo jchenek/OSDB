@@ -23,7 +23,7 @@ while(<IN>){
 print "ID";
 
 foreach my$file (@filelist) {
-if($file =~ m/.xls||.txt||.csv/){
+if($file =~ m/tsv/){
 	my%hash = ();
 	open II, "$DIR_PATH/$file" || die "can not open";
 	$file =~ m/.m6out.uniid_num.tsv/; #<------remove wordy
