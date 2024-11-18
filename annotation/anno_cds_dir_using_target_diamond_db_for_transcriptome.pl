@@ -5,7 +5,7 @@
 #for .faa blastp will be used; for .fna blastx will be used
 #parameters: --sensitive -k 1 -e 1e-20 -c1 --query-cover 70 --subject-cover 70 --id 40
 #https://github.com/bbuchfink/diamond/wiki/1.-Tutorial
-
+#for transcriptome, we decrease the coverage
 
 use warnings;
 ($dir, $db) = @ARGV ;
@@ -27,12 +27,12 @@ foreach my$file (@filelist) {
 	if($file =~ /faa/){
 	$file_name = $file;
 	$file_name =~ s/\.faa//;
-	print OU2"diamond blastp --db $db --query $dir\/$file --out ./diamond_out/$db_name_1\/$file_name.m6out --outfmt 6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore qcovhsp scovhsp --sensitive -k 1 -e 1e-20 -c1 --query-cover 70 --subject-cover 70 --id 40\n";
+	print OU2"diamond blastp --db $db --query $dir\/$file --out ./diamond_out/$db_name_1\/$file_name.m6out --outfmt 6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore qcovhsp scovhsp --sensitive -k 1 -e 1e-20 -c1 --query-cover 40 --subject-cover 40 --id 40\n";
 	}
 	if($file =~ /fna/){
 	$file_name = $file;
 	$file_name =~ s/\.fna//;
-	print OU2"diamond blastx --db $db --query $dir\/$file --out ./diamond_out/$db_name_1\/$file_name.m6out --outfmt 6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore qcovhsp scovhsp --sensitive -k 1 -e 1e-20 -c1 --query-cover 70 --subject-cover 70 --id 40\n";
+	print OU2"diamond blastx --db $db --query $dir\/$file --out ./diamond_out/$db_name_1\/$file_name.m6out --outfmt 6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore qcovhsp scovhsp --sensitive -k 1 -e 1e-20 -c1 --query-cover 40 --subject-cover 40 --id 40\n";
 	}
 }
 system ("bash diamond_com");
