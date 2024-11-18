@@ -26,7 +26,7 @@ foreach my$file (@filelist) {
 	print OU2 "mkdir diamond_out/merops\n";
 	print OU2 "diamond blastp --db $path\/merops/*.dmnd --query $dir\/$file --out ./diamond_out/merops/$file_name.merops.m6out --outfmt 6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore qcovhsp scovhsp --sensitive -k 1 -e 1e-20 -c1 --query-cover 70 --subject-cover 70 --id 40\n";
 	print OU2 "mkdir diamond_out/tcdb\n";
-	print OU2 "diamond blastp --db $path\/tcdb/*.dmnd --query $dir\/$file --out ./diamond_out/tcdb/$file_name.tcdb.m6out --outfmt 6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore qcovhsp scovhsp --sensitive -k 1 -e 1e-20 -c1 --query-cover 70 --subject-cover 70 --id 40\n";
+	print OU2 "diamond blastp --db $path\/tcdb/*.dmnd --query $dir\/$file --out ./diamond_out/tcdb/$file_name.tcdb.m6out --outfmt 6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore qcovhsp scovhsp --sensitive -k 1 -e 1e-20 -c1 --query-cover 30 --subject-cover 30 --id 30\n";
 	print OU2 "mkdir diamond_out/UniProtKB-TrEMBL\n";
 	print OU2 "diamond blastp --db $path\/UniProtKB-TrEMBL/*.dmnd --query $dir\/$file --out ./diamond_out/UniProtKB-TrEMBL/$file_name.UniProtKB-TrEMBL.m6out --outfmt 6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore qcovhsp scovhsp --sensitive -k 1 -e 1e-20 -c1 --query-cover 70 --subject-cover 70 --id 40\n";
 	print OU2 "mkdir diamond_out/kegg\n";
