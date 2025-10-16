@@ -61,6 +61,7 @@ sh /PATH/TO/DB_kegg/kegg_db_wget_p1_data_for_enricher.sh /PATH/TO/YOUR/OSDB_dir
 
 #ko seqs will be download in this part
 sh /PATH/TO/DB_kegg/kegg_db_wget_p2_for_ko_genes.sh
+cd kegg_db_2
 perl /PATH/TO/DB_kegg/kegg_db_wget_p2_1_for_ko_genes_download_seq.pl ko_genes.txt
 
 #(opt) all seqs will be download in this part
