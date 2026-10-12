@@ -2,39 +2,40 @@
 #usage: perl .pl <IN dir_name>
 
 use warnings;
-($dir) = @ARGV ;
+use strict; 
+
+my ($dir) = @ARGV;
+die "Usage: $0 <IN dir_name>\n" unless $dir;
 $dir =~ s/\/$//;
 
-open OU2, ">./prodigal_com";
-print OU2 "mkdir -p prodigal/cds_faa\n";
-print OU2 "mkdir -p prodigal/cds_fna\n";
-print OU2 "mkdir -p prodigal/gff\n";
+# 1. Create target output directories
+system("mkdir -p prodigal/cds_faa");
+system("mkdir -p prodigal/cds_fna");
+system("mkdir -p prodigal/gff");
 
-my$DIR_PATH = $dir;
+# 2. Open command list file
+open OU2, ">./prodigal_com" or die "Cannot write to ./prodigal_com: $!\n";
+
+my $DIR_PATH = $dir;
 opendir DIR, ${DIR_PATH} or die "can not open dir \"$DIR_PATH\"\n";
-my@filelist = readdir DIR;
+my @filelist = readdir DIR;
+closedir DIR;
 
-$com_num = 0;
-foreach my$file (@filelist) {
-	chomp($file);
-	if($file =~ m/fa/){
-	$file =~ s/.fa//;
-	print OU2 "prodigal -i $dir\/$file.fa -o prodigal/gff/$file.gff -f gff -p meta -a prodigal/cds_faa/$file.cds.faa -d prodigal/cds_fna/$file.cds.fna &\n";
-	}
-	if($file =~ m/fna/){
-	$file =~ s/.fna//;
-	print OU2 "prodigal -i $dir\/$file.fna -o prodigal/gff/$file.gff -f gff -p meta -a prodigal/cds_faa/$file.cds.faa -d prodigal/cds_fna/$file.cds.fna &\n";
-	}
-	$com_num = $com_num + 1;
-	if($com_num > 70){
-		print OU2 "wait\n";
-		$com_num = 0;
-	}
+# 3. Iterate through files and generate command lines
+foreach my $file (@filelist) {
+    chomp($file);
+    next if $file =~ /^\./; 
+
+    if ($file =~ m/\.fa(sta)?$|\.fna$/i) {
+        my $prefix = $file;
+        $prefix =~ s/\.fa(sta)?$|\.fna$//i;
+        print OU2 "prodigal -i $dir/$file -o prodigal/gff/$prefix.gff -f gff -p meta -a prodigal/cds_faa/$prefix.cds.faa -d prodigal/cds_fna/$prefix.cds.fna\n";
+    }
 }
-print OU2 "wait\n";
-print OU2 "echo \"######all done######\"\n";
 close OU2;
-#print "sh prodigal_com\n";
-system ("sh prodigal_com");
 
+# 4. Launch parallel tasks using xargs
+print "Starting prodigal tasks with optimized pipeline concurrency...\n";
+system("cat ./prodigal_com | xargs -P 70 -I {} sh -c \"{}\"");
 
+print "######all done######\n";
