@@ -35,7 +35,7 @@ Will use aria2 to download all links (~24 h)
 
 ```sh
 conda activate OSDB
-sh /PATH/TO/one-step-DB-download-p1-general.sh /PATH/TO/YOUR/OSDB_dir
+sh /PATH/TO/one-step-DB-download-p1-general.sh /ABSOLUTE/PATH/TO/YOUR/OSDB_dir
 ```
 
 - `Step 2`: download nr database
